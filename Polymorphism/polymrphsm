@@ -1,0 +1,68 @@
+#include<iostream>
+#include<cstring>
+using namespace std;
+
+class cwh{
+    protected:
+    string title;
+    float rating;
+    public:
+    cwh(string s,float r){
+        title=s;
+        rating=r;
+    }
+    virtual void display(){
+    }
+};
+class cwhvideo:public cwh{
+    float videolength;
+    public:
+    cwhvideo(string s,float r,float vl):cwh(s,r){
+        videolength=vl;
+    }
+    void display(){
+        cout<<"This is an amazing video with title "<<title<<endl;
+        cout<<"Rating :"<<rating<<"out of 5 star"<<endl;
+        cout<<"Length of the video is "<<videolength<<" minutes"<<endl;
+    }
+};
+class cwhtext:public cwh{
+    int words;
+    public:
+    cwhtext(string s,float r,int wc):cwh(s,r){
+        words=wc;
+    }
+    void display(){
+        cout<<"This is an amazing Text with title "<<title<<endl;
+        cout<<"Rating of text tutorial:"<<rating<<" out of 5 star"<<endl;
+        cout<<"Number of words in text tutorial is  "<<words<<" words"<<endl;
+    }
+};
+int main()
+{
+    string title;
+    float rating,vlen;
+    int words;
+
+    title="Cpp video";
+    vlen=4.56;
+    rating=4.89;
+
+    cwhvideo cppvideo(title,rating,vlen);
+    // cppvideo.display();
+
+     title="Cpp video textual";
+    words=456;
+    rating=4.9;
+
+    cwhvideo cpptext(title,rating,words);
+    // cpptext.display();
+
+    cwh *tuts[2];
+    tuts[0]=&cppvideo;
+    tuts[1]=&cpptext;
+
+    tuts[0]->display();
+    tuts[1]->display();
+  return 0;
+}
