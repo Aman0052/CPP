@@ -1,0 +1,22 @@
+#include<iostream>
+using namespace std;
+class complex{
+    int a;
+    int b;
+    public:
+    complex(void);
+    void printNum(void){
+        cout<<"Your number is "<<a<<" + "<<b<<"i"<<endl;
+    }
+};
+//Default constructor doesnot take any parameter...
+complex:: complex(void){     
+    a=10;
+    b=0;
+}
+int main()
+{
+    complex c;
+    c.printNum();
+  return 0;
+}
